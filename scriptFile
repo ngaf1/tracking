@@ -16,7 +16,7 @@ pipeline{
         stage('Code Quality Analysis'){
             
         steps{
-        withSonarQubeEnv('SonarQube Server')
+        withSonarQubeEnv('sonar_jenkins')
         {
         withMaven(maven:'MAVEN_HOME')
         {
