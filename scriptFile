@@ -1,0 +1,30 @@
+pipeline{
+    agent any
+    tools
+        {
+            maven "MAVEN_HOME"
+        }
+    stages{
+        stage('Building Artifact'){
+        steps{
+        withMaven(maven:'MAVEN_HOME')
+        {
+        sh "mvn clean install package"
+        }
+        }
+        }
+        stage('Code Quality Analysis'){
+            
+        steps{
+        withSonarQubeEnv('SonarQube Server')
+        {
+        withMaven(maven:'MAVEN_HOME')
+        {
+        bat "mvn sonar:sonar"
+        }    
+        }    
+        }
+        }
+    }
+}
+
