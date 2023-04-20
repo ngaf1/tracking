@@ -20,7 +20,7 @@ pipeline{
         {
         withMaven(maven:'MAVEN_HOME')
         {
-        bat "mvn sonar:sonar"
+        sh "mvn sonar:sonar"
         }    
         }    
         }
