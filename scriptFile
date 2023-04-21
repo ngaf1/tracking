@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('Building Artifact'){
         steps{
-        withMaven(maven:'MAVEN_HOME')
+        withMaven(maven:'M2_HOME')
         {
         sh "mvn clean install package -DskipTests -Dmaven.javadoc.skip=true"
 
@@ -15,7 +15,7 @@ pipeline{
         steps{
         withSonarQubeEnv('sonar_jenkins')
         {
-        withMaven(maven:'MAVEN_HOME')
+        withMaven(maven:'M2_HOME')
         {
         sh "mvn sonar:sonar"
         }    
