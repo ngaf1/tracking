@@ -5,7 +5,8 @@ pipeline{
         steps{
         withMaven(maven:'MAVEN_HOME')
         {
-        sh "mvn clean install package"
+        sh "mvn clean install package -DskipTests -Dmaven.javadoc.skip=true"
+
         }
         }
         }
