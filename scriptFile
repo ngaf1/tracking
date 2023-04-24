@@ -10,7 +10,18 @@ pipeline{
         }
         }
         }
-        
+        stage('Code Quality Analysis'){
+            
+        steps{
+        withSonarQubeEnv('sonarcicd')
+        {
+        withMaven(maven:'maven')
+        {
+        bat "mvn sonar:sonar"
+        }    
+        }    
+        }
+        }
     }
 }
 
