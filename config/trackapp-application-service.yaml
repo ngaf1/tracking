@@ -1,7 +1,5 @@
 server:
-  port: 9091
-
-spring:
+  spring:
   datasource:
     url: jdbc:mysql://localhost/trackapp
     username: root
