@@ -15,7 +15,7 @@ pipeline{
         steps{
         withSonarQubeEnv('SonarServer')
         {
-        withMaven(maven:'maven')
+        withMaven(maven:'MAVEN_HOME')
         {
         sh "mvn sonar:sonar"
         }    
