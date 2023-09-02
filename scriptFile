@@ -13,11 +13,11 @@ pipeline{
         stage('Code Quality Analysis'){
             
         steps{
-        withSonarQubeEnv('sonarcicd')
+        withSonarQubeEnv('SonarServer')
         {
         withMaven(maven:'maven')
         {
-        bat "mvn sonar:sonar"
+        sh "mvn sonar:sonar"
         }    
         }    
         }
