@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('Building Artifact'){
         steps{
-        withMaven(maven:'M2_HOME')
+        withMaven(maven:'MAVEN_HOME')
         {
         sh "mvn clean install package -DskipTests -Dmaven.javadoc.skip=true"
 
